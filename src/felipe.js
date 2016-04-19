@@ -36,9 +36,11 @@ var ExampleApplication = React.createClass({
   render: function() {
     var message = 'Felipe vai nascer daqui a ' + this.formatTime();
     var percentage = Math.round(100 * (1 - (this.props.remaining / (40 * 7 * 24 * 60 * 60 * 1000))));
+    var weeks = 40 * percentage / 100;
 
     return (
       <div>
+        <p>{weeks} semanas</p>
         <p>{message}</p>
         <ProgressBar percentage={percentage} />
       </div>
