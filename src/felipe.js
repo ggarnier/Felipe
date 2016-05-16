@@ -38,23 +38,45 @@ var ProgressBar = React.createClass({
   }
 });
 
-var ExampleApplication = React.createClass({
-  formatTime: function() {
-    var time = processTime(this.props.remaining);
+var Countdown = React.createClass({
+  render: function() {
+    return (
+      <table>
+        <thead>
+          <tr>
+            <td>Days</td>
+            <td>Hours</td>
+            <td>Minutes</td>
+            <td>Seconds</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{this.props.time.days}</td>
+            <td>{this.props.time.hours}</td>
+            <td>{this.props.time.minutes}</td>
+            <td>{this.props.time.seconds}</td>
+          </tr>
+        </tbody>
+      </table>
+    );
+  }
+});
 
-    return time.days + ' dias ' + time.hours + ':' + time.minutes + ':' + time.seconds;
+var ExampleApplication = React.createClass({
+  getStyle: function() {
+    return {
+
+    };
   },
 
   render: function() {
-    var message = 'Felipe vai nascer daqui a ' + this.formatTime();
-    var percentage = Math.round(100 * (1 - (this.props.remaining / (40 * 7 * 24 * 60 * 60 * 1000))));
-    var weeks = 40 * percentage / 100;
-
     return (
       <div>
-        <p>{weeks} semanas</p>
-        <p>{message}</p>
-        <ProgressBar percentage={percentage} />
+        <Countdown
+          time={processTime(this.props.remaining)}
+          style={this.getStyle()}
+        />
       </div>
     );
   }
