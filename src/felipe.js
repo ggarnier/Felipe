@@ -72,12 +72,10 @@ var ExampleApplication = React.createClass({
 
   render: function() {
     return (
-      <div>
-        <Countdown
-          time={processTime(this.props.remaining)}
-          style={this.getStyle()}
-        />
-      </div>
+      <Countdown
+        time={processTime(this.props.remaining)}
+        style={this.getStyle()}
+      />
     );
   }
 });
