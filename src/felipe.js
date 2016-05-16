@@ -1,4 +1,4 @@
-var birthDay = new Date(2016, 5, 7);
+var birthDay = new Date(2016, 4, 23);
 
 var ProgressBar = React.createClass({
   render: function() {
